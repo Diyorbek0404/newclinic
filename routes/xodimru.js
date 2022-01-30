@@ -44,16 +44,8 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async( req, res) => {
     try {
         const post = await Xodimru.findById(req.params.id)
-        if (post.username === req.body.username) {
-            try {
-                await post.delete()
-                res.status(200).json("sizning postingiz o'chdi")
-            } catch (error) {
-                res.status(500).json(error)
-            }
-        } else {
-            res.status(401).json("sizning postingiz o'chmadi")
-        }
+        await post.delete()
+        res.status(200).json("sizning postingiz o'chdi")
     } catch (error) {
         res.status(500).json(error)
     }
