@@ -7,6 +7,7 @@ const authRouter = require("./routes/auth")
 const userRouter = require("./routes/user")
 const xodimRouter = require("./routes/xodim")
 const xodimruRouter = require("./routes/xodimru")
+const messageRoute = require("./routes/message")
 const multer = require("multer")
 const app = express();
 const cors = require("cors");
@@ -40,6 +41,8 @@ app.use("/api/xodim/", xodimRouter)
 app.use("/api/xodimru/", xodimruRouter)
 app.use("/api/user/", userRouter)
 app.use("/api/auth/", authRouter)
+app.use("/api/message/", messageRoute)
+
 
 
 app.listen("5000", () => {
