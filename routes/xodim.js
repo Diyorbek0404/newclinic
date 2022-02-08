@@ -17,24 +17,16 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
     try {
         const post = await Xodim.findById(req.params.id);
-        if (post.username === req.body.username) {
-            try {
-                const updatePost = await Post.findByIdAndUpdate(
-                    req.params.id,
+        const updatePost = await Post.findByIdAndUpdate(
+              req.params.id,
                     {
                         $set: req.body
                     },
                     {
                         new: true
                     }
-                )
-                res.status(200).json(updatePost)
-            } catch (error) {
-                res.status(500).json(error)
-            }
-        } else {
-            res.status(401).status("siz bu po'stni yozmagansiz")
-        }
+              )
+        res.status(200).json(updatePost)
     } catch (error) {
         res.status(500).json(error)
     }
