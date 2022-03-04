@@ -9,6 +9,7 @@ const xodimRouter = require("./routes/xodim")
 const xodimruRouter = require("./routes/xodimru")
 const messageRoute = require("./routes/message")
 const reklamaRouter = require("./routes/reklama")
+const chatRouter = require("./routes/chat")
 const multer = require("multer")
 const app = express();
 const cors = require("cors");
@@ -44,6 +45,8 @@ app.use("/api/user/", userRouter)
 app.use("/api/auth/", authRouter)
 app.use("/api/message/", messageRoute)
 app.use("/api/reklama/", reklamaRouter)
+app.use("/api/chat/", chatRouter)
+
 
 
 // app.use(express.static(path.join(__dirname, "./client/build")));
